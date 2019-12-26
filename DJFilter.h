@@ -17,14 +17,11 @@
 class DJFilter
 	{
 	private:
-		FILTERTYPE a1L, a1R;
-		FILTERTYPE a2L, a2R;
-		FILTERTYPE a3L, a3R;
-		FILTERTYPE a4L, a4R;
+		FILTERTYPE a1L, a1R, a2L, a2R, a3L, a3R, a4L, a4R;
 		FILTERTYPE hg, lg;
-		FILTERTYPE fc = 1;
+		FILTERTYPE fc;
 	public:
-		DJFilter() {}
+		DJFilter() { a1L = a1R = a2L = a2R = a3L = a3R = a4R = a4L = 0; fc = 0.5f; hg = 0; lg = 1; }
 		// 0-0.5< = lowpass
 		// >0.5-1 = highpass
 		void SetParam(float p)
