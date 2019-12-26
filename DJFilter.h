@@ -1,12 +1,28 @@
+#pragma once
+
+#ifndef FILTERTYPE
+#define FILTERTYPE float
+#endif
+
+/* S.D.Smith (C) 2019 - all rights reserved
+ Super simple IIR DJ Filter
+ 24db only
+
+ No freq tuning
+ Just simple 0-1 mapping
+ 0-0.5 = lowpass
+ 0.5-1 = highpass
+ no DN checking
+*/
 class DJFilter
 	{
 	private:
-		float a1L, a1R;
-		float a2L, a2R;
-		float a3L, a3R;
-		float a4L, a4R;
-		float hg, lg;
-		float fc = 1;
+		FILTERTYPE a1L, a1R;
+		FILTERTYPE a2L, a2R;
+		FILTERTYPE a3L, a3R;
+		FILTERTYPE a4L, a4R;
+		FILTERTYPE hg, lg;
+		FILTERTYPE fc = 1;
 	public:
 		DJFilter() {}
 		// 0-0.5< = lowpass
@@ -28,7 +44,7 @@ class DJFilter
 			fc = pow(fc, 1.0f / 2);
 			}
 		// 24db Lo/Hi pass - no res
-		inline void Process(float&l, float&r)
+		inline void Process(FILTERTYPE&l, FILTERTYPE&r)
 			{
 			a1L += (l - a1L)*fc;
 			a1R += (r - a1R)*fc;
