@@ -1,10 +1,9 @@
-# Biquad-Filter
-Simple Biquad
+Various filters
 
 
-code from a blog somewhere - forget where I got it
+BiQuad
 
-Added the Ztransmag code to plot the frequency response
+DJ
 
-incl's WDL denormal code
+
 
